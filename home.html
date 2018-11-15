@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page1">
+  <h1 id="home-heading1" style="color:#000000;text-align:center;">
+    ParkingGO
+  </h1>
+  <div class="spacer" style="width:300px;height:14px;" id="home-spacer1"></div>
+  <ion-list id="home-list4">
+    <ion-item id="home-select2">
+      <ion-label>
+        No. Plate
+      </ion-label>
+      <ion-select name="">
+        <ion-option>
+          CAW 3773
+        </ion-option>
+        <ion-option>
+          CBT 6233
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item color="calm" id="home-list-item4">
+      <ion-icon name="cash" item-left></ion-icon>
+      Balance :
+    </ion-item>
+  </ion-list>
+  <div class="spacer" style="width:300px;height:31px;" id="home-spacer3"></div>
+  <ion-list id="home-list5">
+    <ion-item color="calm" id="home-list-item5">
+      <ion-icon name="time" item-left></ion-icon>
+      Time Remain :
+    </ion-item>
+  </ion-list>
+  <ion-list id="home-list6">
+    <ion-item-sliding>
+      <ion-item color="calm" id="home-list-item6">
+        Add Time :
+        <ion-icon name="add-circle" item-right></ion-icon>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="positive"></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <div class="spacer" style="width:300px;height:32px;" id="home-spacer4"></div>
+  <ion-list id="home-list2">
+    <ion-item id="home-select1">
+      <ion-label>
+        City
+      </ion-label>
+      <ion-select name="">
+        <ion-option>
+          Tanjong Malim
+        </ion-option>
+        <ion-option>
+          Ipoh
+        </ion-option>
+        <ion-option>
+          Taiping
+        </ion-option>
+        <ion-option>
+          Teluk Intan
+        </ion-option>
+        <ion-option>
+          Seri Iskandar
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item >
+    <ion-label>Park Number</ion-label>
+    <ion-input *ngIf="result" placeholder="AAA 123">{{result.text}}</ion-input>
+  </ion-item>
+
+  <ion-card *ngIf="result">
+    <ion-card-content>
+      <p> Text: {{result.text}}</p>
+      <p>Format: {{result.format}}</p>
+      <p>Cancelled: {{result.cancelled}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating> Data to Encode</ion-label>
+        <ion-input [(ngModel)]="dataToEncode"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <button ion-button clear (click)="encodeData()">Encode</button>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-fab bottom right>
+  <button ion-fab (click)="scanBarcode()" id="home-button2" block style="font-size:25px;border-radius:44px 44px 44px 44px;">
+    <ion-icon name="qr-scanner"></ion-icon>
+    QR SCAN
+  </button>
+</ion-fab> -->
+<button id="home-button2" (click)="scanBarcode()" ion-button color="calm" full large style="font-size:35px;">
+    QR SCAN
+  </button>
+  <button id="home-button3" ion-button color="calm" full large style="font-size:35px;">
+    PAY
+  </button>
+  <!-- <ion-item>
+      <ion-label>Select Time</ion-label>
+      <select-searchable #myselect
+            item-content
+            [(ngModel)]="time1"
+            [items]="time1s"
+            itemValueField="timeInSeconds"
+            itemTextField="name"
+            [canSearch]="true"
+            (onChange)="userChanged($event)">
+      </select-searchable>
+    </ion-item> -->
+
+    <!------------------------------------Timer Countdown------------------------------>
+    <ion-item>
+      <h1 text-center>{{displayTime}}</h1>
+    </ion-item>
+    <button ion-button full color="primary" (click)="plusTime()">Increase Time</button>
+    <button ion-button full color="primary" (Click)="minusTime()">Decrease Time</button>
+    <button ion-button full color="primary" (Click)="startTimer()">Mula</button>
+    
+</ion-content>
