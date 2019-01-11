@@ -1,3 +1,3 @@
 # ParkingGO
-Mobile Parking Payment System <br>
+Mobile Parking Payment Application With QR Code Technology <br>
 akjewediu
